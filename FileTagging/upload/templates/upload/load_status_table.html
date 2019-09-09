@@ -1,0 +1,50 @@
+
+    <table  class="table table-bordered table-hover table-condensed" style="text-align:center;" >
+        <tr >
+            <!-- <th bgcolor="#c6d9ec">ID</th> -->
+            <th bgcolor="#c6d9ec">Batch Filename</th>
+            <th bgcolor="#c6d9ec">Uploaded By</th>
+            <th bgcolor="#c6d9ec">Uploaded At</th>
+            <th bgcolor="#c6d9ec">Status</th>
+        </tr>
+        {% for table in files_list %}
+            <tr style="font-size:90%;">
+                <td>{{ table.batchfile_name }}</td>
+                <td>{{ table.uploaded_by }}</td>
+                <td>{{ table.uploaded_at|date:"Y-m-d G:i:s" }}</td>
+                <td>{{ table.status }}</td>
+
+                <!-- {% if table.status == 'Uploaded' %}
+                    <td> <div class="spinner-grow" role="status"></div> </td>
+                {% else %}
+                    <td>{{ table.status }}</td>
+                {% endif %} -->
+            </tr>
+        {% endfor %}
+        </table>
+
+        <!-- <br> -->
+        
+        {% if files_list.has_other_pages %}
+            <ul class="pagination justify-content-center">
+            {% if files_list.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ files_list.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+            {% endif %}
+
+            {% for i in files_list.paginator.page_range %}
+                {% if files_list.number == i %}
+                    <li class="page-item active"><span class="page-link">{{ i }}<span class="sr-only" >(current)</span></span></li>
+                {% else %}
+                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+            {% endfor %}
+            
+            {% if files_list.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ files_list.next_page_number }}">&raquo;</a></li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+            {% endif %}
+            </ul>
+        {% endif %}

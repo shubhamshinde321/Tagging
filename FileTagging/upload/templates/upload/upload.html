@@ -1,0 +1,108 @@
+{% extends 'upload/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <head>
+        <title>UPLOAD</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 first-column">
+                    <h1 style="text-align: center; text-decoration: underline">UPLOAD FORM</h1>
+                    <br>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}" style="text-align: center">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <br>
+                        <button class="btn btn-primary" type="submit">Upload</button>
+                    </form>
+                </div>
+                <div class="col-sm-1 first-column">
+                </div>
+                <div class="col-sm-6 first-column">
+                    <h1 style="text-align:center; text-decoration:underline;">STATUS
+                        <input id="refresh-button" style="margin-left: 10px; margin-bottom: -2px;" type="image" src="{% static 'images/refresh.png' %}" alt="Submit">
+                    </h1>
+                    <br>
+                    <div class="new_tables">
+                        <table  class="table table-bordered table-hover table-condensed" style="text-align:center;" >
+                        <tr >
+                            <!-- <th bgcolor="#c6d9ec">ID</th> -->
+                            <th bgcolor="#c6d9ec">Batch Filename</th>
+                            <th bgcolor="#c6d9ec">Uploaded By</th>
+                            <th bgcolor="#c6d9ec">Uploaded At</th>
+                            <th bgcolor="#c6d9ec">Status</th>
+                        </tr>
+                        {% for table in files_list %}
+                            <tr style="font-size:90%;">
+                                <td>{{ table.batchfile_name }}</td>
+                                <td>{{ table.uploaded_by }}</td>
+                                <td>{{ table.uploaded_at|date:"Y-m-d G:i:s" }}</td>
+                                <td>{{ table.status }}</td>
+
+                                <!-- {% if table.status == 'Processed' %}
+                                    <td> <div class="spinner-grow" role="status"></div> </td>
+                                {% else %}
+                                    <td>{{ table.status }}</td>
+                                {% endif %} -->
+                            </tr>
+                        {% endfor %}
+                        </table>
+            
+
+                        {% if files_list.has_other_pages %}
+                            <ul class="pagination justify-content-center">
+                            {% if files_list.has_previous %}
+                                <li class="page-item"><a class="page-link" href="?page={{ files_list.previous_page_number }}">&laquo;</a></li>
+                            {% else %}
+                                <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+                            {% endif %}
+                
+                            {% for i in files_list.paginator.page_range %}
+                                {% if files_list.number == i %}
+                                    <li class="page-item active"><span class="page-link">{{ i }}<span class="sr-only" >(current)</span></span></li>
+                                {% else %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            
+                            {% if files_list.has_next %}
+                                <li class="page-item"><a class="page-link" href="?page={{ files_list.next_page_number }}">&raquo;</a></li>
+                            {% else %}
+                                <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+                            {% endif %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        $("#refresh-button").on('click', status);
+        function status() {
+            
+            $.ajax({
+                method: "POST",
+                url: "{% url 'load_status_table' %}",
+                data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                    }
+            })
+            .done(function (msg) {
+                // alert(msg);
+                $(".new_tables").html(msg);
+            });
+        }
+    </script>
+
+{% endblock %}

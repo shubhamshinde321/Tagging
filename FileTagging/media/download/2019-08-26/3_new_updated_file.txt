@@ -1,0 +1,114 @@
+Id	Daily	Domain	Company_name	dba	Existing_match	Variant	Industry
+1	Antitrust	COMPANIES	Apple Inc				3867575
+2	Antitrust	COMPANIES	Apple Inc				3867575
+3	Antitrust	COMPANIES	Apple Inc				3867575
+4	Antitrust	COMPANIES	Benihana Inc				4545454
+5	Antitrust	COMPANIES	Benihana of Tokyo LLC				7854878
+6	Antitrust	COMPANIES	Patriot Pyrotechnics LLC	Bill's Fireworks		3004741	
+7	Banking	COMPANIES	American Bankers Association			3014946	
+8	Banking	COMPANIES	Banco Safra SA-Cayman Islands Branch			3000306	
+9	Banking	COMPANIES	Chase Bank USA NA			3005846	
+10	Banking	COMPANIES	Consumer Bankers Association			2006884	
+11	Banking	COMPANIES	Independent Community Bankers of America			3009291	
+12	Banking	COMPANIES	MUFG Bank Ltd	Bank of Tokyo-Mitsubishi UFJ, Ltd.			345343
+13	Banking	COMPANIES	Americans for Financial Reform				56986565
+14	Banking	COMPANIES	AMTD International Inc				454547
+15	Banking	COMPANIES	Bank Policy Institute				124574
+16	Banking	COMPANIES	BankPolicyInstitute				2121241
+17	Banking	COMPANIES	Bankrate				
+18	Banking	COMPANIES	Better Markets			3012844	
+19	Banking	COMPANIES	BetterMarkets				
+20	Banking	COMPANIES	BHP Billiton Ltd				
+21	Banking	COMPANIES	BRP Inc				
+22	Banking	COMPANIES	Consumer Federation of America			2006884	
+23	Banking	COMPANIES	Employees Retirement System of the State of Hawaii				
+24	Banking	COMPANIES	Equifax		3007108		
+25	Banking	COMPANIES	Equifax Inc		3007108		
+26	Banking	COMPANIES	Fannie Mae				4545665
+27	Banking	COMPANIES	Financial Services Forum				7878245
+28	Banking	COMPANIES	Freddie Mac				45453
+29	Banking	COMPANIES	Freedom Debt Relief LLC				4565765
+30	Banking	COMPANIES	Glucose Biosensor Systems (Greater China) Holdings Inc				756756
+31	Banking	COMPANIES	Jefferies LLC				
+32	Banking	LAW FIRMS	Winston & Strawn LLP			2003146	
+33	Banking	LAW FIRMS	Witherspoon Brajcich McPhee			2008090	
+34	Health	COMPANIES	Bayer Healthcare LLC			3000271	
+35	Health	COMPANIES	Bayer Healthcare Pharmaceuticals Inc			3000271	
+36	Health	COMPANIES	Bayer Pharma AG			3000271	
+37	Health	COMPANIES	Arkansas Health Group			3003616	
+38	Health	COMPANIES	Biomet Orthopedics Inc				
+39	Health	COMPANIES	Biomet Inc				
+40	Health	COMPANIES	Constellation Health LLC			3004836	
+41	Health	COMPANIES	Dr Pepper Snapple Group Inc			3006599	
+42	Health	COMPANIES	Fresenius Medical Care Holdings Inc		3008407		
+43	Health	COMPANIES	HCR Home Health Care & Hospice LLC				
+44	Health	COMPANIES	HCR ManorCare Inc				
+45	Health	COMPANIES	Health Care Authority of the City of Huntsville	Huntsville Hospital Association, Inc.		3008833	
+46	Health	COMPANIES	Health Care Compliance Association			3008833	
+47	Health	COMPANIES	Lehigh Valley Health Network Inc			3010264	
+48	Health	COMPANIES	Lehigh Valley Hospital			3010264	
+49	Health	COMPANIES	LivinRite Inc				
+50	Health	COMPANIES	Long Grove Manor Inc	Arlington Rehabilitation & Living Center		3010462	
+51	Health	COMPANIES	Medco Health Solutions Inc			3010968	
+52	Health	COMPANIES	Partners Health Care System Inc				
+53	Health	COMPANIES	Sanford Health			2005986	
+54	Health	COMPANIES	Sanofi US Services Inc	Sanofi-Aventis U.S. Inc.			
+55	Health	COMPANIES	Sanofi-Aventis US LLC				
+56	Health	COMPANIES	The General Hospital Corp				
+57	Health	COMPANIES	Abbott Laboratories				
+58	Health	COMPANIES	Bayer Corp			3000271	
+59	Health	COMPANIES	Bayer Healthcare LLC			3000271	
+60	Health	COMPANIES	Bayer Healthcare Pharmaceuticals Inc			3000271	
+61	Health	COMPANIES	CVS Pharmacy Inc	CVS Pharmacy			
+62	Health	COMPANIES	Eli Lilly and Co		3010365		
+63	Health	COMPANIES	Express Scripts Holding Co				
+64	Health	COMPANIES	Fort Myers Beach Pharmacy Holdings LLC			3007844	
+65	Health	COMPANIES	Fort Myers Beach Pharmacy LLC			3007843	
+66	Health	COMPANIES	Provepharm Inc				
+67	IP	LAW FIRMS	Acker Wood Intellectual Property Law LLC			2007859	
+68	IP	LAW FIRMS	Woods Rogers		2003173		
+69	IP	LAW FIRMS	Woods Oviatt Gilman LLP			2003172	
+70	ip	LAW FIRMS	D Young & Co LLP				
+71	Labor	COMPANIES	Atomium Corps Inc (a Colorado company)				
+72	Labor	COMPANIES	Atomium Corps Inc (a Wyoming company)				
+73	Labor	LAW FIRMS	Wiggins Childs Pantazis Fisher & Goldfarb			2006161	
+74	Labor	LAW FIRMS	Wilkinson Walsh Eskovitz			2003101	
+75	Labor	LAW FIRMS	William J Ferren & Associates			2003116	
+76	Labor	LAW FIRMS	Williams & Connolly LLP			3016808	
+77	Labor	LAW FIRMS	Wolf Greenfield & Sacks PC			2005512	
+78	Labor	LAW FIRMS	Wolf Greenfield & Sacks PC			2005512	
+79	Labor	LAW FIRMS	Wood Herron & Evans LLP				
+80	Labor	LAW FIRMS	Thornton Carpenter O'Brien Lazenby & Lawrence				
+81	Securities	COMPANIES	Cach LLC				
+82	Securities	COMPANIES	Cadlerock III LLC				
+83	Securities	COMPANIES	Calibra Inc				
+84	Securities	COMPANIES	Catalyst Capital Advisors LLC				
+85	Securities	COMPANIES	Cavalry Portfolio Services LLC				
+86	Securities	COMPANIES	Center for Capital Markets Competitiveness			3001737	
+87	Securities	COMPANIES	Center for Responsible Lending				
+88	Securities	COMPANIES	Certain Underwriters at Lloyd's of London and Indian Harbor Insurance Co				
+89	Securities	COMPANIES	Chester County Employees' Retirement Fund				
+90	Securities	COMPANIES	Churchill Capital Corp II				
+91	Securities	COMPANIES	Continental Casualty Co		3005863		
+92	Securities	COMPANIES	Credit Suisse Holdings (USA) Inc				
+93	Securities	COMPANIES	Cross Country Insurance Co				7575785
+94	Securities	COMPANIES	Davis Selected Advisers LP				
+95	Securities	COMPANIES	Davis Selected Advisers-NY Inc				
+96	Securities	COMPANIES	Libra Association				
+97	Securities	COMPANIES	Mutual Fund Series Trust				
+98	Securities	COMPANIES	SEB Investment Management AB				
+99	Securities	COMPANIES	Securities Industry and Financial Markets Association				
+100	Securities	COMPANIES	Shoreline Foundation Inc				
+101	Securities	COMPANIES	The Kane Capital Investment Group LLC				
+102	Securities	LAW FIRMS	Williams Mullen		2003131		
+103	Securities	LAW FIRMS	Wilmer Cutler Hale and Dorr LLP				
+104	Securities	LAW FIRMS	Wilmer Cutler Pickering Hale and Dorr LLP				
+105	Securities	LAW FIRMS	Wilson Elser				
+106	Securities	LAW FIRMS	Wilson Elser Moskowitz Edelman & Dicker		2003138		
+107	Securities	LAW FIRMS	Wilson Sonsini Goodrich & Rosati		2003139		
+108	Securities	LAW FIRMS	Wilson Elser Moskowitz Edleman & Dicker LLP				
+109	Securities	LAW FIRMS	Zuckerman Spaeder LLP				
+110	Securities	LAW FIRMS	Zwerling Schachter & Zwerling LLP				
+111	Securities	LAW FIRMS	Drinker Biddle & Reath LLP				
+112	Securities	LAW FIRMS	GrayRobinson PA				
+113		LAW FIRMS	WilliamsMcCarthy LLP				34564345

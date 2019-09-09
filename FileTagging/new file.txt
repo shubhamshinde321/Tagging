@@ -1,0 +1,114 @@
+id	daily	domain	company_name	existing_code	variant	industry	batch_id
+1	Antitrust	COMPANIES	Apple Inc				
+2	Antitrust	COMPANIES	Apple Inc				
+3	Antitrust	COMPANIES	Apple Inc				
+4	Antitrust	COMPANIES	Benihana Inc				
+5	Antitrust	COMPANIES	Benihana of Tokyo LLC				
+6	Antitrust	COMPANIES	Patriot Pyrotechnics LLC				
+7	Banking	COMPANIES	American Bankers Association				
+8	Banking	COMPANIES	Banco Safra SA-Cayman Islands Branch				
+9	Banking	COMPANIES	Chase Bank USA NA				
+10	Banking	COMPANIES	Consumer Bankers Association				
+11	Banking	COMPANIES	Independent Community Bankers of America				
+12	Banking	COMPANIES	MUFG Bank Ltd				
+13	Banking	COMPANIES	Americans for Financial Reform				
+14	Banking	COMPANIES	AMTD International Inc				
+15	Banking	COMPANIES	Bank Policy Institute				
+16	Banking	COMPANIES	BankPolicyInstitute				
+17	Banking	COMPANIES	Bankrate				
+18	Banking	COMPANIES	Better Markets				
+19	Banking	COMPANIES	BetterMarkets				
+20	Banking	COMPANIES	BHP Billiton Ltd				
+21	Banking	COMPANIES	BRP Inc				
+22	Banking	COMPANIES	Consumer Federation of America				
+23	Banking	COMPANIES	Employees Retirement System of the State of Hawaii				
+24	Banking	COMPANIES	Equifax				
+25	Banking	COMPANIES	Equifax Inc				
+26	Banking	COMPANIES	Fannie Mae				
+27	Banking	COMPANIES	Financial Services Forum				
+28	Banking	COMPANIES	Freddie Mac				
+29	Banking	COMPANIES	Freedom Debt Relief LLC				
+30	Banking	COMPANIES	Glucose Biosensor Systems (Greater China) Holdings Inc				
+31	Banking	COMPANIES	Jefferies LLC				
+32	Banking	LAW FIRMS	Winston & Strawn LLP				
+33	Banking	LAW FIRMS	Witherspoon Brajcich McPhee				
+34	Health	COMPANIES	Bayer Healthcare LLC				
+35	Health	COMPANIES	Bayer Healthcare Pharmaceuticals Inc				
+36	Health	COMPANIES	Bayer Pharma AG				
+37	Health	COMPANIES	Arkansas Health Group				
+38	Health	COMPANIES	Biomet Orthopedics Inc				
+39	Health	COMPANIES	Biomet Inc				
+40	Health	COMPANIES	Constellation Health LLC				
+41	Health	COMPANIES	Dr Pepper Snapple Group Inc				
+42	Health	COMPANIES	Fresenius Medical Care Holdings Inc				
+43	Health	COMPANIES	HCR Home Health Care & Hospice LLC				
+44	Health	COMPANIES	HCR ManorCare Inc				
+45	Health	COMPANIES	Health Care Authority of the City of Huntsville				
+46	Health	COMPANIES	Health Care Compliance Association				
+47	Health	COMPANIES	Lehigh Valley Health Network Inc				
+48	Health	COMPANIES	Lehigh Valley Hospital				
+49	Health	COMPANIES	LivinRite Inc				
+50	Health	COMPANIES	Long Grove Manor Inc				
+51	Health	COMPANIES	Medco Health Solutions Inc				
+52	Health	COMPANIES	Partners Health Care System Inc				
+53	Health	COMPANIES	Sanford Health				
+54	Health	COMPANIES	Sanofi US Services Inc				
+55	Health	COMPANIES	Sanofi-Aventis US LLC				
+56	Health	COMPANIES	The General Hospital Corp				
+57	Health	COMPANIES	Abbott Laboratories	3002017			
+58	Health	COMPANIES	Bayer Corp				
+59	Health	COMPANIES	Bayer Healthcare LLC				
+60	Health	COMPANIES	Bayer Healthcare Pharmaceuticals Inc				
+61	Health	COMPANIES	CVS Pharmacy Inc				
+62	Health	COMPANIES	Eli Lilly and Co				
+63	Health	COMPANIES	Express Scripts Holding Co				
+64	Health	COMPANIES	Fort Myers Beach Pharmacy Holdings LLC				
+65	Health	COMPANIES	Fort Myers Beach Pharmacy LLC				
+66	Health	COMPANIES	Provepharm Inc				
+67	IP	LAW FIRMS	Acker Wood Intellectual Property Law LLC				
+68	IP	LAW FIRMS	Woods Rogers				
+69	IP	LAW FIRMS	Woods Oviatt Gilman LLP				
+70	ip	LAW FIRMS	D Young & Co LLP				
+71	Labor	COMPANIES	Atomium Corps Inc (a Colorado company)				
+72	Labor	COMPANIES	Atomium Corps Inc (a Wyoming company)				
+73	Labor	LAW FIRMS	Wiggins Childs Pantazis Fisher & Goldfarb				
+74	Labor	LAW FIRMS	Wilkinson Walsh Eskovitz				
+75	Labor	LAW FIRMS	William J Ferren & Associates				
+76	Labor	LAW FIRMS	Williams & Connolly LLP				
+77	Labor	LAW FIRMS	Wolf Greenfield & Sacks PC				
+78	Labor	LAW FIRMS	Wolf Greenfield & Sacks PC				
+79	Labor	LAW FIRMS	Wood Herron & Evans LLP				
+80	Labor	LAW FIRMS	Thornton Carpenter O'Brien Lazenby & Lawrence				
+81	Securities	COMPANIES	Cach LLC				
+82	Securities	COMPANIES	Cadlerock III LLC				
+83	Securities	COMPANIES	Calibra Inc				
+84	Securities	COMPANIES	Catalyst Capital Advisors LLC				
+85	Securities	COMPANIES	Cavalry Portfolio Services LLC				
+86	Securities	COMPANIES	Center for Capital Markets Competitiveness				
+87	Securities	COMPANIES	Center for Responsible Lending				
+88	Securities	COMPANIES	Certain Underwriters at Lloyd's of London and Indian Harbor Insurance Co				
+89	Securities	COMPANIES	Chester County Employees' Retirement Fund				
+90	Securities	COMPANIES	Churchill Capital Corp II				
+91	Securities	COMPANIES	Continental Casualty Co				
+92	Securities	COMPANIES	Credit Suisse Holdings (USA) Inc				
+93	Securities	COMPANIES	Cross Country Insurance Co				
+94	Securities	COMPANIES	Davis Selected Advisers LP				
+95	Securities	COMPANIES	Davis Selected Advisers-NY Inc				
+96	Securities	COMPANIES	Libra Association				
+97	Securities	COMPANIES	Mutual Fund Series Trust				
+98	Securities	COMPANIES	SEB Investment Management AB				
+99	Securities	COMPANIES	Securities Industry and Financial Markets Association				
+100	Securities	COMPANIES	Shoreline Foundation Inc				
+101	Securities	COMPANIES	The Kane Capital Investment Group LLC				
+102	Securities	LAW FIRMS	Williams Mullen				
+103	Securities	LAW FIRMS	Wilmer Cutler Hale and Dorr LLP				
+104	Securities	LAW FIRMS	Wilmer Cutler Pickering Hale and Dorr LLP				
+105	Securities	LAW FIRMS	Wilson Elser				
+106	Securities	LAW FIRMS	Wilson Elser Moskowitz Edelman & Dicker				
+107	Securities	LAW FIRMS	Wilson Sonsini Goodrich & Rosati				
+108	Securities	LAW FIRMS	Wilson Elser Moskowitz Edleman & Dicker LLP				
+109	Securities	LAW FIRMS	Zuckerman Spaeder LLP				
+110	Securities	LAW FIRMS	Zwerling Schachter & Zwerling LLP				
+111	Securities	LAW FIRMS	Drinker Biddle & Reath LLP				
+112	Securities	LAW FIRMS	GrayRobinson PA				
+113		LAW FIRMS	WilliamsMcCarthy LLP				

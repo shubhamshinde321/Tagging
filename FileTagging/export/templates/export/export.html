@@ -1,0 +1,49 @@
+{% extends 'upload/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <head>
+        <title>EXPORT</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1 style="align-content: center; text-decoration: underline;">EXPORT</h1>
+            <br>
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <label style="font-size: 120%;">File Download:</label>
+                        <select class="form-control" name="" id="download">
+                            <option value="">---------</option>
+                            {% for file in file_download %}
+                                <option value="{{ file.batchfile_name }}">{{ file.batchfile_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <br>
+                        <div class='download-btn'>
+                            <button class="btn btn-primary">Download</button>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        $("#download").change(function() {
+            var filesId = $(this).val();
+
+            $.ajax({
+                method: "POST",
+                url: "{% url 'load_files' %}",
+                data: { doc_file: filesId,
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                    }
+            })
+            .done(function (msg) {
+                $(".download-btn").html(msg);
+            });
+        });
+    </script>
+
+{% endblock %}

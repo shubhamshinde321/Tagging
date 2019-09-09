@@ -1,0 +1,206 @@
+
+    <style>
+        
+    </style>
+
+    <div class="new_page">
+        <div class="form-group">
+            <table class="table table-bordered table-hover table-condensed">
+                <tr style="text-align:center;">
+                    <th bgcolor="#c6d9ec">ID</th>
+                    <th bgcolor="#c6d9ec">COMPANY NAME</th>
+                    <th bgcolor="#c6d9ec">VARIANCE</th>
+                    <th bgcolor="#c6d9ec">MATCH</th>
+                    <th bgcolor="#c6d9ec">PARTIAL MATCH</th>
+                </tr>
+                
+                {% for data in page_obj %}
+                    <tr style="font-size:90%; text-align:left;" >
+                        <td>{{ data.id }}</td> 
+                        <td>{{ data.comp_name }}</td>
+                        {% if  data.variant == None %}
+                            <td></td>
+                            <td></td>
+                        {% else %}
+                            <td>{{ data.variant }}</td>
+                            <td>{{ data.selected_name }}</td>
+                        {% endif %}
+                        <td><input type="text" class="form-control input-xs text_box"></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="page_num">
+            {% if page_obj.has_other_pages %}
+                <ul class="pagination justify-content-center">
+
+                    {% if page_obj.has_previous %}
+                        <li class="page-item" value="{{ page_obj.previous_page_number }}"><a class="page-link">&laquo;</a></li>
+                    {% else %}
+                        <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+                    {% endif %}
+                    
+                    {% if page_obj.number|add:'-4' > 1 %}
+                        <li class="page-item" value="{{ page_obj.number|add:'-5' }}"><a class="page-link">&hellip;</a></li>
+                    {% endif %}
+                    
+                    {% for i in page_obj.paginator.page_range %}
+                        {% if page_obj.number == i %}
+                            <li class="page-item active"><span class="page-link" id="current">{{ i }}<span class="sr-only"></span></span></li>
+                        {% elif i > page_obj.number|add:'-5' and i < page_obj.number|add:'5' %}
+                            <li class="page-item page_display" value='{{ i }}'><a class="page-link" >{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% if page_obj.paginator.num_pages > page_obj.number|add:'4' %}
+                        <li class="page-item" value="{{ page_obj.number|add:'5' }}"><a class="page-link">&hellip;</a></li>
+                    {% endif %}
+                    
+                    {% if page_obj.has_next %}
+                        <li class="page-item" value="{{ page_obj.next_page_number }}"><a class="page-link">&raquo;</a></li>
+                    {% else %}
+                        <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+                    {% endif %}
+                    
+                </ul>
+            {% endif %}
+        </div>
+
+        <div class="text-right">
+            <button type="button" class="btn btn-primary" id="save_button">Save & Next</button>
+        </div>
+
+    </div>
+
+
+    <script>
+        $("#save_button").click(function() {
+            var filesId = $("#batch-name").val();
+            var page = parseInt($("#current").text()) + 1;
+            console.log(page)
+            var data = [];
+            $('table').find('tr').each(function(rowIndex, r){
+                var cols = []
+                if($(this).find('td:eq(2)').text() !== ''){
+                    $(this).find('td').each(function(colIndex, c){
+                        
+                        cols.push(c.textContent)
+                    });
+                    data.push(cols);
+                } 
+            });
+            $.ajax({
+                method: "POST",
+                url: "{% url 'load_page' %}",
+                data: { page: page,
+                        'data_new[]': data,
+                        doc_file: filesId,
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                    }
+            })
+
+            .done(function (msg) {
+                // alert(msg);
+                $(".new").html(msg);
+            });
+        });
+    </script>
+
+    <script>
+        $('.page-item').click(function() {
+            var page = $(this).val();
+            var filesId = $("#batch-name").val();
+            if (page !== 0){
+                var data = [];
+                $('table').find('tr').each(function(rowIndex, r){
+                    var cols = []
+                    if($(this).find('td:eq(2)').text() !== ''){
+                        $(this).find('td').each(function(colIndex, c){
+                            
+                            cols.push(c.textContent)
+                        });
+                        data.push(cols);
+                    } 
+                });
+                $.ajax({
+                    method: "POST",
+                    url: "{% url 'load_page' %}",
+                    data: { page: page,
+                            'data_new[]': data,
+                            doc_file: filesId,
+                            csrfmiddlewaretoken: '{{ csrf_token }}',
+                        }
+                    })
+                .done(function (msg) {
+                    // alert(msg);
+                    $(".new").html(msg);
+                });
+            }
+        });
+    </script>
+
+<script>
+    $(".text_box").focus(function (){
+        var value = $(this).closest("tr").find("td:eq(1)").text();
+        var filesId = $("#batch-name").val();
+
+        $.ajax({
+            method: "POST",
+            url: "{% url 'load_autocomplete' %}",
+            data: { doc_file: filesId,
+                    value: value,
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                }
+        })
+            .done(function (msg) {
+                data = JSON.parse(msg);
+                $(".text_box").autocomplete({
+                        minLength: 2,
+                        source: function (request, response) {
+                            response($.map(data, function (obj, key) {
+                                var new_name = obj.name.toUpperCase();
+                                
+                                if (new_name.indexOf(request.term.toUpperCase()) != -1) {				
+                                    return {
+                                        label: obj.name
+                                    }
+                                } else {
+                                    return null;
+                                }
+                            }));			
+                        },    
+                        focus: function(event, ui) {
+                            event.preventDefault();
+                        },
+                        select: function(event, ui) {
+                            event.preventDefault();
+                            $(this).val(ui.item.label);
+
+                            $.ajax({
+                                method: "POST",
+                                url: "{% url 'load_variance_code' %}",
+                                data: { match: ui.item.label,
+                                        value: value,
+                                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                                    }
+                            })
+
+                            .done(function (msg) {
+                                $("tr:contains("+ui.item.label+")").find("td:eq(2)").text(msg);
+                                // $(this).closest("tr").find("td:eq(2)").val(msg)
+                            });
+
+                        }
+                });	
+            });   
+    });
+
+</script>
+
+
+
+
+        
+
+        

@@ -1,0 +1,51 @@
+{% extends 'upload/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <head>
+        <title>PROCESS</title>
+    </head>
+    <body>
+        <div class="process">
+            <div class="container"> 
+                <h1 style="text-align:left; text-decoration:underline;">PROCESS</h1>
+                <br>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label style="font-size: 120%;" for="batch">BATCH FILE:</label>
+                            <select class="form-control" name="batch" id="batch-name" onfocus='this.size=6;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+                                <option value="">-----------</option>
+                                {% for batchfile_name in item_list %}
+                                    <option value="{{ batchfile_name.batchfile_name }}">{{ batchfile_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div id="load_button"></div>
+                <br>
+            </div>
+        </div> 
+    </body>
+
+<script>
+    $("#batch-name").change(function() {
+        var filesId = $(this).val();
+        // alert(filesId);
+        
+        $.ajax({
+            method: "POST",
+            url: "{% url 'load_button' %}",
+            data: { doc_file: filesId,
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                }
+        })
+        .done(function (msg) {
+            // alert(msg);
+            $("#load_button").html(msg);
+        });
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,215 @@
+
+<style>
+    .ui-autocomplete {
+        max-height: 200px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 20px;
+    } 
+
+    .input-xs {
+        height: 28px;
+        padding: 2px 2px;
+        font-size: 16px;
+        line-height: 1.5;
+        border-radius: 3px;
+        }
+</style>
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item" id="exact"><a class="nav-link" >Exact</a></li>
+        <li class="nav-item" id="variance"><a class="nav-link" >Variance</a></li>
+        <li class="nav-item" id="industry"><a class="nav-link active" >Industry</a></li>
+    </ul>
+    
+    <br>
+
+    <div class="new-industry">
+        <div class="form-group">
+            <table class="table table-bordered table-hover table-condensed">
+                <tr style="text-align:center;">
+                    <th bgcolor="#c6d9ec">ID</th>
+                    <th bgcolor="#c6d9ec">COMPANY NAME</th>
+                    <th bgcolor="#c6d9ec">SELECTED CODE</th>
+                    <th bgcolor="#c6d9ec">INDUSTRY CODE</th>
+                </tr>
+
+                {% for data in page_obj %}
+                    <tr style="font-size:90%; text-align:left;">
+                        <td>{{ data.id }}</td> 
+                        <td>{{ data.comp_name }}</td>
+                        {% if data.selected_industry == None %}
+                            <td></td>
+                        {% else %}
+                            <td>{{ data.selected_industry }}</td>
+                        {% endif %}
+                        <td><input type="number" class="form-control input-xs text_box"></td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <div class="page_num">
+                {% if page_obj.has_other_pages %}
+                    <ul class="pagination justify-content-center">
+
+                        {% if page_obj.has_previous %}
+                            <li class="page-item" value="{{ page_obj.previous_page_number }}"><a class="page-link">&laquo;</a></li>
+                        {% else %}
+                            <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+                        {% endif %}
+                        
+                        {% if page_obj.number|add:'-4' > 1 %}
+                            <li class="page-item" value="{{ page_obj.number|add:'-5' }}"><a class="page-link">&hellip;</a></li>
+                        {% endif %}
+                        
+                        {% for i in page_obj.paginator.page_range %}
+                            {% if page_obj.number == i %}
+                                <li class="page-item active"><span class="page-link" id="current">{{ i }} <span class="sr-only"></span></span></li>
+                            {% elif i > page_obj.number|add:'-5' and i < page_obj.number|add:'5' %}
+                                <li class="page-item page_display" value='{{ i }}'><a class="page-link" >{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        
+                        {% if page_obj.paginator.num_pages > page_obj.number|add:'4' %}
+                            <li class="page-item" value="{{ page_obj.number|add:'5' }}"><a class="page-link">&hellip;</a></li>
+                        {% endif %}
+                        
+                        {% if page_obj.has_next %}
+                            <li class="page-item" value="{{ page_obj.next_page_number }}"><a class="page-link">&raquo;</a></li>
+                        {% else %}
+                            <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+                        {% endif %}
+                        
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="text-right">
+                <button type="button" class="btn btn-primary" id="save">Save & Next</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $("#save").click(function() {
+            var filesId = $("#batch-name").val();
+            var page = parseInt($("#current").text()) + 1;
+            var save = 'False';
+            console.log(page)
+            var data = [];
+                $('table').find('tr').each(function(rowIndex, r){
+                    var cols = []
+                    var column = 1;
+                    if($(this).find("td:eq(3) input[type='text']").val() !== ''){
+                        $(this).find('td').each(function(colIndex, c){
+                            if(column === 1 || column === 2){
+                                cols.push(c.textContent)
+                            }
+                            column ++;
+                            
+                        });
+                        cols.push($(this).find("td:eq(3) input[type='number']").val())
+                        data.push(cols);
+                    }
+                });
+                $.ajax({
+                    method: "POST",
+                    url: "{% url 'load_industry_page' %}",
+                    data: { page: page,
+                            'data_new[]': data,
+                            doc_file: filesId,
+                            save: save,
+                            csrfmiddlewaretoken: '{{ csrf_token }}',
+                        }
+                })
+
+                .done(function (msg) {
+                    // alert(msg);
+                    $(".new-industry").html(msg);
+                });
+        
+        });
+    </script>
+
+    <script>
+        $('.page-item').click(function() {
+            var page = $(this).val();
+            var filesId = $("#batch-name").val();
+            var save = 'False';
+            if (page !== 0){
+                var data = [];
+                $('table').find('tr').each(function(rowIndex, r){
+                    var cols = []
+                    var column = 1;
+                    if($(this).find("td:eq(3) input[type='text']").val() !== ''){
+                        $(this).find('td').each(function(colIndex, c){
+                            if(column === 1 || column == 2){
+                                cols.push(c.textContent)
+                            }
+                            column ++;
+                            
+                        });
+                        cols.push($(this).find("td:eq(3) input[type='number']").val())
+                        data.push(cols);
+                    }
+                    console.log(data)
+                });
+                $.ajax({
+                    method: "POST",
+                    url: "{% url 'load_industry_page' %}",
+                    data: { page: page,
+                            'data_new[]': data,
+                            doc_file: filesId,
+                            save: save,
+                            csrfmiddlewaretoken: '{{ csrf_token }}',
+                        }
+                })
+
+                .done(function (msg) {
+                    // alert(msg);
+                    $(".new-industry").html(msg);
+                });
+            }
+
+        });
+    </script>
+
+    <script>
+            $("#exact").click(function() {
+                var filesId = $("#batch-name").val();
+
+                $.ajax({
+                    method: "POST",
+                    url: "{% url 'load_exact' %}",
+                    data: { doc_file: filesId,
+                            csrfmiddlewaretoken: '{{ csrf_token }}',
+                        }
+                })
+                .done(function (msg) {
+                    // alert(msg);
+                    $("#table").html(msg);
+                });
+            });
+        </script>
+
+
+    <script>
+        $("#variance").click(function() {
+            var filesId = $("#batch-name").val();
+            
+            $.ajax({
+                method: "POST",
+                url: "{% url 'load_variance' %}",
+                data: { doc_file: filesId,
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                    }
+            })
+            .done(function (msg) {
+                // alert(msg);
+                $("#table").html(msg);
+            });
+        });
+    </script>
+
+
