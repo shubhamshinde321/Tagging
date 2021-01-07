@@ -26,7 +26,7 @@ jdcal==1.4.1
 Jinja2==2.10.1
 lazy-object-proxy==1.4.1
 locket==0.2.0
-lxml==4.4.1
+lxml==4.6.2
 MarkupSafe==1.1.1
 mccabe==0.6.1
 msgpack==0.6.1
