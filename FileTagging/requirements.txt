@@ -23,7 +23,7 @@ howdoi==1.2.1
 idna==2.8
 isort==4.3.21
 jdcal==1.4.1
-Jinja2==2.10.1
+Jinja2==2.11.3
 lazy-object-proxy==1.4.1
 locket==0.2.0
 lxml==4.4.1
