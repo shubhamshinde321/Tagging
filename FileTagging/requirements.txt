@@ -12,7 +12,7 @@ colorama==0.4.1
 cssselect==1.1.0
 dask==2.3.0
 distributed==2.3.0
-Django==2.2.4
+Django==2.2.24
 django-crispy-forms==1.7.2
 django-endless-pagination==2.0
 et-xmlfile==1.0.1
